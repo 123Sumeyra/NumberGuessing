@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.sumeyra.numberguessinggame.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/anaSayfaToTahmin"
+            app:destination="@id/guessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guessFragment"
+        android:name="com.sumeyra.numberguessinggame.GuessFragment"
+        android:label="fragment_guess"
+        tools:layout="@layout/fragment_guess" >
+        <action
+            android:id="@+id/tahminToSonuc"
+            app:destination="@id/conclusionFragment"
+            app:popUpTo="@id/guessFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/conclusionFragment"
+        android:name="com.sumeyra.numberguessinggame.ConclusionFragment"
+        android:label="fragment_conclusion"
+        tools:layout="@layout/fragment_conclusion" >
+        <argument
+            android:name="sonuc"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sumeyra.numberguessinggame.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
